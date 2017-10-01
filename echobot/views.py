@@ -23,7 +23,7 @@ def default(event):
     print(event)
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text='Currently Not Support None Text Message')
+        TextSendMessage(text='Halo')
     )
 
 
