@@ -6,6 +6,8 @@ from linebot import LineBotApi, WebhookHandler
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import MessageEvent, TextSendMessage, TextMessage
 
+from methods import semangat
+
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(settings.LINE_CHANNEL_SECRET)
 
@@ -13,11 +15,8 @@ handler = WebhookHandler(settings.LINE_CHANNEL_SECRET)
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     inputText = event.message.text
-    if 'semangatin aku dong' in inputText.lower():
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text='Semangat cuy!')
-        )
+    if 'semangatin aku' in inputText.lower():
+        semangat(event, line_bot_api)
 
 @handler.default()
 def default(event):
