@@ -21,17 +21,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-def get_env_variable(var_name):
-    try:
-        return os.environ[var_name]
-    except KeyError:
-        error_msg = 'Set the {} environment variable'.format(var_name)
-        raise ImproperlyConfigured(error_msg)
-
-SECRET_KEY = get_env_variable('SECRET_KEY')
-LINE_CHANNEL_ACCESS_TOKEN = get_env_variable('LINE_CHANNEL_ACCESS_TOKEN')
-LINE_CHANNEL_SECRET = get_env_variable('LINE_CHANNEL_SECRET')
-
+SECRET_KEY = '^vx91(_=o8h$7bxv_e_rzr+$hb8$cb%%r@t1rg3x4g11cgk3)+'
+LINE_CHANNEL_ACCESS_TOKEN = 'eLYtQ9TeGPaHYiKOooP5Spuh8S0CBF5sM6KBbhpkGoZugBkBA9pbFLn+KgFeukTi531rM6JRoS0HQTB+hHLqdfsYEw9pMZrGz5WF5ILotRA2hWG9sJy1HdIR7CG0INx5kcpOUg1Y7YSca6y0XqmXLgdB04t89/1O/w1cDnyilFU='
+LINE_CHANNEL_SECRET = 'cf068e645fee26a1b18af10136809c7d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
