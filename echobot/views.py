@@ -15,8 +15,11 @@ handler = WebhookHandler(settings.LINE_CHANNEL_SECRET)
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     inputText = event.message.text
-    if 'semangatin aku' in inputText.lower():
+    textArray = inputText.lower().split()
+    if 'semangatin aku' in textArray:
         semangat(event, line_bot_api)
+    if textArray[0] == 'apakah':
+        yesOrNo(event, line_bot_api, textArray)
 
 @handler.default()
 def default(event):
