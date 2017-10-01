@@ -12,11 +12,12 @@ handler = WebhookHandler(settings.LINE_CHANNEL_SECRET)
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=event.message.text)
-    )
-
+    inputText = event.message.text
+    if 'semangatin aku dong' in inputText.lower():
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text='Semangat cuy!')
+        )
 
 @handler.default()
 def default(event):
