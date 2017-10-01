@@ -35,7 +35,7 @@ def hitung(event, line_bot_api, textArray):
     try:
         line_bot_api.reply_message(
             event.reply_token,
-            TextSendMessage(text=eval(textArray[1:]))
+            TextSendMessage(text=eval(textArray[1]))
         )
     except:
         line_bot_api.reply_message(

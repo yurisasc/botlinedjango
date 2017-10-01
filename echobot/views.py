@@ -20,7 +20,7 @@ def handle_text_message(event):
     if textArray[0] == 'apakah':
         yesOrNo(event, line_bot_api, textArray)
     if textArray[0] == 'hitung':
-        hitung(event, line_bot_api, textArray)
+        hitung(event, line_bot_api, inputText.lower().split(' ', 1))
 
 ##handler for any other events
 ##
