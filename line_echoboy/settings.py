@@ -28,7 +28,7 @@ LINE_CHANNEL_SECRET = 'cf068e645fee26a1b18af10136809c7d'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['mytestbotecho.herokuapp.com']
 
 
 # Application definition
