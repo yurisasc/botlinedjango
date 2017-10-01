@@ -19,6 +19,8 @@ def handle_text_message(event):
         semangat(event, line_bot_api)
     if textArray[0] == 'apakah':
         yesOrNo(event, line_bot_api, textArray)
+    if textArray[0] == 'hitung':
+        hitung(event, line_bot_api, textArray)
 
 ##handler for any other events
 ##
