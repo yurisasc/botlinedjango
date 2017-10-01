@@ -11,7 +11,6 @@ from .methods import *
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(settings.LINE_CHANNEL_SECRET)
 
-
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     inputText = event.message.text
@@ -21,13 +20,15 @@ def handle_text_message(event):
     if textArray[0] == 'apakah':
         yesOrNo(event, line_bot_api, textArray)
 
-@handler.default()
-def default(event):
-    print(event)
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text='Halo')
-    )
+##handler for any other events
+##
+##@handler.default()
+##def default(event):
+##    print(event)
+##    line_bot_api.reply_message(
+##        event.reply_token,
+##        TextSendMessage(text='Halo')
+##    )
 
 
 @csrf_exempt
