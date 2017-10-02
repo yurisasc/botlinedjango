@@ -1,5 +1,6 @@
-from linebot.models import TextSendMessage
+from linebot.models import TextSendMessage, ImageSendMessage
 import random
+import sys
 
 semangat_list = ['Semangat cuy!', 'Lo pasti bisa!', 'Pasti sukses', 'Good luck!',\
                  'Apa sih yang lo ga bisa?', 'Jangan putus asa, masih ada harapan']
