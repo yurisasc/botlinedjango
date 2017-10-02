@@ -21,6 +21,8 @@ def handle_text_message(event):
         yesOrNo(event, line_bot_api, textArray)
     if textArray[0] == 'hitung':
         hitung(event, line_bot_api, inputText.lower().split(' ', 1))
+    if 'astaghfirullah' in textArray:
+        meme_astaghfirullah(event, line_bot_api)
 
 ##handler for any other events
 ##

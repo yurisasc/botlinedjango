@@ -20,7 +20,7 @@ def yesOrNo(event, line_bot_api, textArray):
         for char in words:
             if char in letter_weight:
                 weight += letter_weight[char]
-    if weight%2 == 0:
+    if weight%2 == 1:
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text='ya')
@@ -41,4 +41,17 @@ def hitung(event, line_bot_api, textArray):
         line_bot_api.reply_message(
             event.reply_token,
             TextSendMessage(text='Input angka yang bener ya')
+        )
+
+def meme_astaghfirullah(event, line_bot_api):
+    try:
+        image_message = ImageSendMessage(
+            original_content_url='https://i.imgur.com/2PjT87u.jpg',
+            preview_image_url='https://i.imgur.com/2PjT87u.jpg'
+        )
+    except:
+        e = sys.exc_info()[0]
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=e)
         )
