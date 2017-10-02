@@ -75,5 +75,5 @@ def scrape_btc(event, line_bot_api):
     harga = (harga[0].split())[3]
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text='Harga bitcoin : {} Rupiah\nLast checked: {}'.format(harga,time.strftime("%d/%m/%Y %H:%M"))
+        TextSendMessage(text='Harga bitcoin : {} Rupiah\nLast checked: {}'.format(harga,time.strftime("%d/%m/%Y %H:%M")))
     )
