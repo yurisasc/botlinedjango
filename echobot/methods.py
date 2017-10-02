@@ -50,6 +50,10 @@ def meme_astaghfirullah(event, line_bot_api):
             original_content_url='https://i.imgur.com/2PjT87u.jpg',
             preview_image_url='https://i.imgur.com/2PjT87u.jpg'
         )
+        line_bot_api.reply_message(
+            event.reply_token,
+            image_message
+        )        
     except:
         e = sys.exc_info()[0]
         line_bot_api.reply_message(
