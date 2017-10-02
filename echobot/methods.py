@@ -1,7 +1,6 @@
 from linebot.models import TextSendMessage, ImageSendMessage
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.options import Options
 import random
 import sys
 
@@ -84,7 +83,7 @@ def meme_trapSeto(event, line_bot_api):
 def scrape_btc(event, line_bot_api):
     try:
         chrome_options = Options()
-        selenium = webdriver.Chrome('./chromedriver', chrome_options=chrome_options)
+        selenium = webdriver.Chrome()
         selenium.get('https://www.google.co.id/search?hl=en&source=hp&q=1+btc+to+idr&oq=&gs_l=psy-ab.1.1.35i39k1l6.0.0.0.17304.8.1.6.0.0.0.0.0..1.0.dummy_maps_web_fallback...0...1..64.psy-ab..1.7.161.6...117.FYi5o41hMbk')
         btc = selenium.find_element_by_id('pair_targ_input')
         line_bot_api.reply_message(
