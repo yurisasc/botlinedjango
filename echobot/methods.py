@@ -71,8 +71,7 @@ def scrape_btc(event, line_bot_api):
     req = requests.get(main_url)
     soup = BeautifulSoup(req.text, "html.parser")
     div = soup.find('input', {'id': 'pair_targ_input'}).get('value')
-    text = div.get_text()
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text)
+        TextSendMessage(text=div)
     )
