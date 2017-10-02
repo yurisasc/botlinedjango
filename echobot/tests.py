@@ -1,4 +1,5 @@
 from lxml import html
+import time
 import requests
 
 main_url = 'https://www.bitcoin.co.id/'
@@ -8,7 +9,7 @@ tree = html.fromstring(req.content)
 harga = tree.xpath('//div[@class="pull-right"]/span/text()')
 harga = (harga[0].split())[3]
 #harga = harga[3]
-print('Harga bitcoin : {} Rupiah'.format(harga))
+print('Harga bitcoin : {} Rupiah\nLast checked: {}'.format(harga,time.strftime("%d/%m/%Y %H:%M")))
 
 
 '''

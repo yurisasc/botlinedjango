@@ -1,5 +1,6 @@
 from linebot.models import TextSendMessage, ImageSendMessage
 from lxml import html
+import time
 import requests
 import random
 import sys
@@ -74,5 +75,5 @@ def scrape_btc(event, line_bot_api):
     harga = (harga[0].split())[3]
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text='Harga bitcoin : {} Rupiah'.format(harga))
+        TextSendMessage(text='Harga bitcoin : {} Rupiah\nLast checked: {}'.format(harga,time.strftime("%d/%m/%Y %H:%M"))
     )
