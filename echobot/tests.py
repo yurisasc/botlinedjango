@@ -1,23 +1,30 @@
-from selenium import webdriver
-import unittest
-import time
+from lxml import html
+import requests
 
-class NewVisitortest(unittest.TestCase):
-    def setUp(self):
-            self.browser = webdriver.Chrome('../chromedriver.exe')
-    
-    def tearDown(self):
-            self.browser.quit()
+main_url = 'https://www.bitcoin.co.id/'
+req = requests.get(main_url)
+tree = html.fromstring(req.content)
+#harga = tree.xpath('//td/input[@id="pair_targ_input"]/@value')
+harga = tree.xpath('//div[@class="pull-right"]/span/text()')
+harga = (harga[0].split())[3]
+#harga = harga[3]
+print('Harga bitcoin : {} Rupiah'.format(harga))
 
-    def test_can_start_a_list_and_retrieve_it_later(self):
-            self.browser.get('http://www.google.com/xhtml')
-            time.sleep(5)
 
-            search_box = self.browser.find_element_by_name('q')
-            search_box.send_keys('Gunung Agung')
-            search_box.submit()
-            time.sleep(5)
-            self.assertIn('Bali',self.browser.page_source)
+'''
+soup = BeautifulSoup(req.text, "html.parser")
+div = soup.find('input', {'id': 'pair_targ_input'})['value']
+print(div) dikau mau search apa...
 
-if __name__ == '__main__':#
-	unittest.main(warnings='ignore')#
+daripada langsung ke url yg panjang, maunya scrape dari awal
+emang bisa? scraping kayaknya ga kayak gitu deh
+soalnya kalo scraping tuh dia ngasih dari web yg udah ada gitu
+
+kalo selenium kaya gitu sih
+
+\ nah iya kalo selenium sebenernya buat bikin test gitu
+ohhh
+
+
+
+'''

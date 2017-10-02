@@ -1,5 +1,5 @@
 from linebot.models import TextSendMessage, ImageSendMessage
-from bs4 import BeautifulSoup
+from lxml import html
 import requests
 import random
 import sys
@@ -67,11 +67,12 @@ def meme_trapSeto(event, line_bot_api):
     )        
 
 def scrape_btc(event, line_bot_api):
-    main_url = 'https://www.google.co.id/search?hl=en&source=hp&q=1+btc+to+idr&oq=&gs_l=psy-ab.1.1.35i39k1l6.0.0.0.17304.8.1.6.0.0.0.0.0..1.0.dummy_maps_web_fallback...0...1..64.psy-ab..1.7.161.6...117.FYi5o41hMbk'
+    main_url = 'https://www.bitcoin.co.id/'
     req = requests.get(main_url)
-    soup = BeautifulSoup(req.text, "html.parser")
-    div = soup.find('input', {'id': 'pair_targ_input'})['value']
+    tree = html.fromstring(req.content)
+    harga = tree.xpath('//div[@class="pull-right"]/span/text()')
+    harga = (harga[0].split())[3]
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=div)
+        TextSendMessage(text='Harga bitcoin : {} Rupiah'.format(harga))
     )
