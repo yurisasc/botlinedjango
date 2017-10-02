@@ -60,3 +60,20 @@ def meme_astaghfirullah(event, line_bot_api):
             event.reply_token,
             TextSendMessage(text=e)
         )
+
+def meme_trapSeto(event, line_bot_api):
+    try:
+        image_message = ImageSendMessage(
+            original_content_url='https://i.imgur.com/giz4DiI.jpg',
+            preview_image_url='https://i.imgur.com/giz4DiI.jpg'
+        )
+        line_bot_api.reply_message(
+            event.reply_token,
+            image_message
+        )        
+    except:
+        e = sys.exc_info()[0]
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=e)
+        )

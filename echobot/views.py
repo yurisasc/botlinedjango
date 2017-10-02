@@ -23,6 +23,8 @@ def handle_text_message(event):
         hitung(event, line_bot_api, inputText.lower().split(' ', 1))
     if 'astaghfirullah' in textArray:
         meme_astaghfirullah(event, line_bot_api)
+    if ('activate' and 'trap') in textArray:
+        meme_trapSeto(event, line_bot_api)
 
 ##handler for any other events
 ##
