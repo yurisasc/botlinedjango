@@ -17,15 +17,15 @@ def handle_text_message(event):
     textArray = inputText.lower().split()
     if 'semangatin' in textArray:
         semangat(event, line_bot_api)
-    else if textArray[0] == 'apakah':
+    elif textArray[0] == 'apakah':
         yesOrNo(event, line_bot_api, textArray)
-    else if textArray[0] == 'hitung':
+    elif textArray[0] == 'hitung':
         hitung(event, line_bot_api, inputText.lower().split(' ', 1))
-    else if 'astaghfirullah' in textArray:
+    elif 'astaghfirullah' in textArray:
         meme_astaghfirullah(event, line_bot_api)
-    else if ('activate' and 'trap') in textArray:
+    elif ('activate' and 'trap') in textArray:
         meme_trapSeto(event, line_bot_api)
-    else if ('harga' and ('bitcoin' or 'btc')) in textArray:
+    elif ('harga' and ('bitcoin' or 'btc')) in textArray:
         scrape_btc(event, line_bot_api)
 
 ##handler for any other events
