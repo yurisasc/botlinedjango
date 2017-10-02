@@ -4,7 +4,7 @@ import time
 
 class NewVisitortest(unittest.TestCase):
     def setUp(self):
-            self.browser = webdriver.Chrome('./chromedriver.exe')
+            self.browser = webdriver.Chrome('chromedriver.exe')
     
     def tearDown(self):
             self.browser.quit()
