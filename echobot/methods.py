@@ -73,7 +73,10 @@ def scrape_btc(event, line_bot_api):
     tree = html.fromstring(req.content)
     harga = tree.xpath('//div[@class="pull-right"]/span/text()')
     harga = (harga[0].split())[3]
+    jam = int(time.strftime('%H')) + 7
+    if(jam > 24): jam-=24
+    menit = int(time.strftime('%M'))
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text='Harga bitcoin : {} Rupiah\nLast checked: {}'.format(harga,time.strftime("%d/%m/%Y %H:%M")))
+        TextSendMessage(text='Harga bitcoin: {} Rupiah\nLast checked: {} {}:{}'.format(harga,time.strftime("%d/%m/%Y"),jam,menit))
     )

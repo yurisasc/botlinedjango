@@ -23,9 +23,9 @@ def handle_text_message(event):
         hitung(event, line_bot_api, inputText.lower().split(' ', 1))
     elif 'astaghfirullah' in textArray:
         meme_astaghfirullah(event, line_bot_api)
-    elif ('activate' and 'trap') in textArray:
+    elif ('activate' in textArray) and ('trap' in textArray):
         meme_trapSeto(event, line_bot_api)
-    elif ('harga' and 'bitcoin') in textArray:
+    elif ('harga' in textArray) and ('bitcoin' in textArray):
         scrape_btc(event, line_bot_api)
 
 ##handler for any other events
