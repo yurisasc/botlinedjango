@@ -112,7 +112,7 @@ def button(event, line_bot_api):
         buttons_template_message
     )
     
-def get_name(event, line_bot):
+def get_name(event, line_bot_api):
     profile = event.source
     line_bot_api.reply_message(
         event.reply_token,
