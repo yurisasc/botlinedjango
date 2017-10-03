@@ -111,6 +111,13 @@ def button(event, line_bot_api):
         event.reply_token,
         buttons_template_message
     )
+
+def groupid(event, line_bot_api):
+    print(event.source.group_id)
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=event.source.group_id)
+    )
     
 def get_name(event, line_bot_api):
     if(isinstance(event.source, SourceUser)):

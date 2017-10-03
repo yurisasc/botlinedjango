@@ -7,10 +7,14 @@ from linebot.exceptions import InvalidSignatureError, LineBotApiError
 from linebot.models import MessageEvent, TextSendMessage, TextMessage
 
 from .methods import *
+from datetime import datetime, timedelta
 
 line_bot_api = LineBotApi(settings.LINE_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(settings.LINE_CHANNEL_SECRET)
 
+
+##dictionary tanggal ultah anak-anak
+ultah = {'Yuris':'02/10/2017'}
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     inputText = event.message.text
@@ -31,18 +35,15 @@ def handle_text_message(event):
         button(event, line_bot_api)
     elif 'name' in textArray:
         get_name(event, line_bot_api)
+    elif 'groupid' in textArray:
+        groupid(event, line_bot_api)
+    ##TODO implement remind_me, data type = dictionary{nama:tanggal}
 
-print("hahhahahaha==========================")
-##handler for any other events
-##
-##@handler.default()
-##def default(event):
-##    print(event)
-##    line_bot_api.reply_message(
-##        event.reply_token,
-##        TextSendMessage(text='Halo')
-##    )
-
+while(True):
+    for key in ultah.keys(): 
+        if time.strftime("%d/%m/%Y") in ultah.get(key):
+            print("debug 1s")
+    sleep(1)
 
 @csrf_exempt
 def callback(request):
