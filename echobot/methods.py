@@ -138,7 +138,7 @@ def get_name(event, line_bot_api):
 
 def ooh_wee(event, line_bot_api):
     audio_message = AudioSendMessage(
-        original_content_url='https://www.dropbox.com/s/s1h8wfiibml2n04/ooh%20wee.m4a',
+        original_content_url='https://drive.google.com/open?id=0B_pg-_BXUdGrdGxIWGFsTWVXUDA',
         duration=1000
     )
     line_bot_api.reply_message(
