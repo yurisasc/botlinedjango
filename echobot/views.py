@@ -28,7 +28,7 @@ def handle_text_message(event):
     elif ('harga' in textArray) and ('bitcoin' in textArray):
         scrape_btc(event, line_bot_api)
     elif 'button' in textArray:
-        button()
+        button(event)
 
 ##handler for any other events
 ##

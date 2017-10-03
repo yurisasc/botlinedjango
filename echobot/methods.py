@@ -83,7 +83,7 @@ def scrape_btc(event, line_bot_api):
         TextSendMessage(text='1 BTC = Rp. {}\n.\nChecked on {} at {}:{}'.format(harga,time.strftime("%d/%m/%Y"),jam,menit))
     )
 
-def button():
+def button(event):
     buttons_template_message = TemplateSendMessage(
         alt_text='Buttons template',
         template=ButtonsTemplate(
@@ -106,4 +106,8 @@ def button():
                 )
             ]
         )
+    )
+    line_bot_api.reply_message(
+        event.reply_token,
+        buttons_template_message
     )
