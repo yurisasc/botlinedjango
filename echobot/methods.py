@@ -113,7 +113,7 @@ def button(event, line_bot_api):
     )
     
 def get_name(event, line_bot_api):
-    profile = event.source
+    profile = event.source.userId
     print(profile)
     line_bot_api.reply_message(
         event.reply_token,
