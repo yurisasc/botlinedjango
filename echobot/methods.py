@@ -114,6 +114,7 @@ def button(event, line_bot_api):
     
 def get_name(event, line_bot_api):
     profile = event.source
+    print(profile)
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=profile)
