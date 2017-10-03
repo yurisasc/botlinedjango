@@ -32,6 +32,7 @@ def handle_text_message(event):
     elif 'name' in textArray:
         get_name(event, line_bot_api)
 
+print("hahhahahaha==========================")
 ##handler for any other events
 ##
 ##@handler.default()

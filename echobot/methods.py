@@ -122,14 +122,7 @@ def get_name(event, line_bot_api):
         userId = event.source.user_id
         profile = line_bot_api.get_group_member_profile(groupId, userId)
         name = profile.display_name
-        print(event.source)
-    if(name == 'None'):
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text='Botnya di-add dulu ya biar tau namamu')
-        )
-    else:
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=name)
-        )
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=name)
+    )
