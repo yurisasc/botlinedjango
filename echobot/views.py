@@ -29,6 +29,8 @@ def handle_text_message(event):
         scrape_btc(event, line_bot_api)
     elif 'button' in textArray:
         button(event, line_bot_api)
+    elif 'name' in textArray:
+        get_name(event, line_bot_api)
 
 ##handler for any other events
 ##

@@ -1,0 +1,48 @@
+WEREWOLF
+
+	ROLES:
+		- Villager
+		- Werewolf
+		- Drunk
+		- Seer
+		- Cursed
+		- Harlot
+		- Beholder
+		- Gunner
+		- Traitor
+		- Guardian Angel
+		- Tanner
+		- Serial Killer
+		- Fool
+		
+	COMMANDS:
+		- /startgame
+		- /extend
+		- /players
+		- /help
+		- /flee
+		
+	ROLEDESC:
+		Villager:
+			- Can vote
+			- Can be voted
+		Werewolf:
+			- Can vote
+			- Can kill (night)
+			- Can be voted
+		Drunk:
+			- Can vote
+			- Disable werewolf's kill next night (still dead tho)
+			- Can be voted
+		Seer:
+			- Can vote
+			- Can see role (night)
+			- Can be voted
+		Cursed:
+			- Can vote
+			- Turn to werewolf if killed by them
+			- Can be voted
+		Harlot:
+			- Can vote
+			- Can visit other players (dead if werewolf)
+			- Can be voted
