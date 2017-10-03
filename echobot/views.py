@@ -14,7 +14,6 @@ handler = WebhookHandler(settings.LINE_CHANNEL_SECRET)
 
 
 ##dictionary tanggal ultah anak-anak
-ultah = {'Yuris':'02/10/2017'}
 @handler.add(MessageEvent, message=TextMessage)
 def handle_text_message(event):
     inputText = event.message.text
@@ -37,13 +36,9 @@ def handle_text_message(event):
         get_name(event, line_bot_api)
     elif 'groupid' in textArray:
         groupid(event, line_bot_api)
+    elif 'trigger_reminder' in textArray:
+        trigger_reminder(event, line_bot_api)
     ##TODO implement remind_me, data type = dictionary{nama:tanggal}
-
-while(True):
-    for key in ultah.keys(): 
-        if time.strftime("%d/%m/%Y") in ultah.get(key):
-            print("debug 1s")
-    time.sleep(1)
 
 @csrf_exempt
 def callback(request):

@@ -12,6 +12,8 @@ letter_weight = {'a':1,'b':2,'c':3,'d':4,'e':5,'f':6,'g':7,'h':8,'i':9,'j':10,\
                  'k':11,'l':12,'m':13,'n':14,'o':15,'p':16,'q':17,'r':18,\
                  's':19,'t':20,'u':21,'v':22,'w':23,'x':24,'y':25,'z':26}
 
+ultah = {'Yuris':'02/10/2017'}
+
 def semangat(event, line_bot_api):
     line_bot_api.reply_message(
         event.reply_token,
@@ -133,3 +135,11 @@ def get_name(event, line_bot_api):
         event.reply_token,
         TextSendMessage(text=name)
     )
+
+def trigger_reminder(event, line_bot_api):
+    while(True):
+    for key in ultah.keys(): 
+        if time.strftime("%d/%m/%Y") in ultah.get(key):
+            print("debug 1s")
+    time.sleep(1)
+
