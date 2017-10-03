@@ -116,7 +116,7 @@ def get_name(event, line_bot_api):
     profile = event.source
     print(profile)
     print(type(profile))
-    print(profile['userId'])
+    print(profile.sender_id())
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=profile)
