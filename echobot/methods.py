@@ -138,8 +138,8 @@ def get_name(event, line_bot_api):
 
 def trigger_reminder(event, line_bot_api):
     while(True):
-    for key in ultah.keys(): 
-        if time.strftime("%d/%m/%Y") in ultah.get(key):
-            print("debug 1s")
-    time.sleep(1)
+        for key in ultah.keys(): 
+            if time.strftime("%d/%m/%Y") in ultah.get(key):
+                print("debug 1s")
+        time.sleep(1)
 
