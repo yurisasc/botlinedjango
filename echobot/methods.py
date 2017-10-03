@@ -115,7 +115,7 @@ def button(event, line_bot_api):
 def get_name(event, line_bot_api):
     print(type(event.source))
     print(event.source)
-    if(type(event.source) == linebot.models.sources.SourceUser):
+    if(isinstance(event.source, linebot.models.sources.SourceUser)):
         userId = event.source.sender_id
         profile = line_bot_api.get_profile(userId)
         name = profile.display_name
