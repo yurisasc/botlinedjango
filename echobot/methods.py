@@ -1,4 +1,4 @@
-from linebot.models import TextSendMessage, ImageSendMessage
+from linebot.models import *
 from lxml import html
 import time
 import requests
@@ -81,4 +81,29 @@ def scrape_btc(event, line_bot_api):
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text='1 BTC = Rp. {}\n.\nChecked on {} at {}:{}'.format(harga,time.strftime("%d/%m/%Y"),jam,menit))
+    )
+
+def button():
+    buttons_template_message = TemplateSendMessage(
+        alt_text='Buttons template',
+        template=ButtonsTemplate(
+            thumbnail_image_url='https://i.imgur.com/BIDxujA.png',
+            title='Menu',
+            text='Please select',
+            actions=[
+                PostbackTemplateAction(
+                    label='postback',
+                    text='postback text',
+                    data='action=buy&itemid=1'
+                ),
+                MessageTemplateAction(
+                    label='message',
+                    text='message text'
+                ),
+                URITemplateAction(
+                    label='uri',
+                    uri='http://example.com/'
+                )
+            ]
+        )
     )

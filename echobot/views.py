@@ -27,6 +27,8 @@ def handle_text_message(event):
         meme_trapSeto(event, line_bot_api)
     elif ('harga' in textArray) and ('bitcoin' in textArray):
         scrape_btc(event, line_bot_api)
+    elif 'button' in textArray:
+        button()
 
 ##handler for any other events
 ##
