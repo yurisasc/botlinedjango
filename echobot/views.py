@@ -43,7 +43,7 @@ while(True):
     for key in ultah.keys(): 
         if time.strftime("%d/%m/%Y") in ultah.get(key):
             print("debug 1s")
-    sleep(1)
+    time.sleep(1)
 
 @csrf_exempt
 def callback(request):
