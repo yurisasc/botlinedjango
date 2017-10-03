@@ -36,8 +36,8 @@ def handle_text_message(event):
         get_name(event, line_bot_api)
     elif 'groupid' in textArray:
         groupid(event, line_bot_api)
-    elif 'trigger_reminder' in textArray:
-        trigger_reminder(event, line_bot_api)
+    elif ('ooh' in textArray) and ('wee' in textArray):
+        ooh_wee(event, line_bot_api)
     ##TODO implement remind_me, data type = dictionary{nama:tanggal}
 
 @csrf_exempt

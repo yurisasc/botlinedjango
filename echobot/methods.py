@@ -136,10 +136,13 @@ def get_name(event, line_bot_api):
         TextSendMessage(text=name)
     )
 
-def trigger_reminder(event, line_bot_api):
-    while(True):
-        for key in ultah.keys(): 
-            if time.strftime("%d/%m/%Y") in ultah.get(key):
-                print("debug 1s")
-        time.sleep(1)
+def ooh_wee(event, line_bot_api):
+    audio_message = AudioSendMessage(
+        original_content_url='https://instaud.io/1jlm',
+        duration=800
+    )
+    line_bot_api.reply_message(
+        event.reply_token,
+        audio_message
+    )
 
