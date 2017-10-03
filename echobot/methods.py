@@ -146,3 +146,13 @@ def ooh_wee(event, line_bot_api):
         audio_message
     )
 
+def wadadaw(event, line_bot_api):
+    audio_message = AudioSendMessage(
+        original_content_url='https://drive.google.com/uc?export=download&id=0B3k5wi3OKBaAakhHWHpkQ2NET1k',
+        duration=4000
+    )
+    line_bot_api.reply_message(
+        event.reply_token,
+        audio_message
+    )
+

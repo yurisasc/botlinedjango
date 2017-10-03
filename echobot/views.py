@@ -38,6 +38,8 @@ def handle_text_message(event):
         groupid(event, line_bot_api)
     elif ('ooh' in textArray) and ('wee' in textArray):
         ooh_wee(event, line_bot_api)
+    elif ('wadadaw' in textArray) or ('wadadaaw' in textArray):
+        wadadaw(event, line_bot_api)
     ##TODO implement remind_me, data type = dictionary{nama:tanggal}
 
 @csrf_exempt
