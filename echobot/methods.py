@@ -113,8 +113,6 @@ def button(event, line_bot_api):
     )
     
 def get_name(event, line_bot_api):
-    print(type(event.source))
-    print(event.source)
     if(isinstance(event.source, SourceUser)):
         userId = event.source.sender_id
         profile = line_bot_api.get_profile(userId)
@@ -124,6 +122,7 @@ def get_name(event, line_bot_api):
         userId = event.source.sender_id
         profile = line_bot_api.get_group_member_profile(groupId, userId)
         name = profile.display_name
+        print("group_id: "+groupId+", userId: "+userID+", name: "+name)
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=name)
