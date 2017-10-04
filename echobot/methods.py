@@ -148,8 +148,7 @@ def trigger_timer(event, line_bot_api, limit):
     )
     for i in range(int(limit)):
         time.sleep(1)
-    print("=========== Timer done! ===========")
-    line_bot_api.push_message(userId, TextSendMessage(text='Waktu habis!'))    
+    return True    
 
 ## VOICE MESSAGE
 def ooh_wee(event, line_bot_api):
