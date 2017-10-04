@@ -195,8 +195,8 @@ def meeseeks(event, line_bot_api):
 ## TEST TUGAS
     ## /new
     def new_tugas(dictio, matkul, tanggal, pesan):
-            if matkul in dictio: dictio[matkul][pesan] = tanggal
-                    else: dictio[matkul] = {pesan:tanggal}
+        if matkul in dictio: dictio[matkul][pesan] = tanggal
+            else: dictio[matkul] = {pesan:tanggal}
 
     ## /task date
     def get_tugasInTanggal(event, line_bot_api, tanggal):
