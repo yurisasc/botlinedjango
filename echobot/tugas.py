@@ -2,6 +2,8 @@
 ## /new
 from linebot.models import MessageEvent, TextSendMessage, TextMessage
 
+reminder = Reminder()
+
 class Reminder():
 
     def __init__(self):
@@ -17,6 +19,7 @@ class Reminder():
 
     ## /task date
     def get_tugasInTanggal(self, event, line_bot_api, tanggal):
+        print(tanggal)
         result = "==================\n"
         for tugas in list(self.dictio.values()):
             if tanggal in list(tugas.keys()):
@@ -30,6 +33,7 @@ class Reminder():
 
     ## /task course
     def get_tugasInMatkul(self, event, line_bot_api, matkul):
+        print(matkul)
         result = "==================\n"
         for tugas in self.dictio.get(matkul):
             result += (tugas + " " + self.dictio.get(matkul).get(tugas) + "\n")
@@ -78,5 +82,3 @@ class Reminder():
                 event.reply_token,
                 TextSendMessage(text=self.dictio)
             )
-
-reminder = Reminder()

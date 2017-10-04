@@ -54,7 +54,7 @@ def handle_text_message(event):
     elif '/course' in textArray:
         reminder.get_courses(event, line_bot_api)
     elif '/remove' in textArray:
-        settings.reminder.remove_tugas(event, line_bot_api, textArray[1], textArray[2])
+        reminder.remove_tugas(event, line_bot_api, textArray[1], textArray[2])
     elif '/dictio' in textArray:
         reminder.dictio(event, line_bot_api)
     ##TODO implement remind_me, data type = dictionary{nama:tanggal}
