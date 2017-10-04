@@ -218,7 +218,7 @@ def get_tugasInMatkul(event, line_bot_api, matkul):
     result += "=================="
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=)
+        TextSendMessage(text=result)
     )
 
 ## /course
