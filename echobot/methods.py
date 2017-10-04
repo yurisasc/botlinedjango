@@ -1,4 +1,5 @@
 from linebot.models import *
+from linebot.exceptions import LineBotApiError, BaseError
 from lxml import html
 import time
 import requests
@@ -139,15 +140,26 @@ def get_name(event, line_bot_api):
     )
 
 def trigger_timer(event, line_bot_api, limit):
-    userId = event.source.sender_id
-    print(userId)
-    print(int(limit))
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text='Started timer for ' + limit + ' seconds.')
-    )
-    for i in range(int(limit)):
-        time.sleep(1)    
+    try:
+        userId = event.source.sender_id
+        print(userId)
+        print(int(limit))
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text='Started timer for ' + limit + ' seconds.')
+        )
+        for i in range(int(limit)):
+            time.sleep(1)
+        line_bot_api.push_message(event.source.sender_id, TextSendMessage(text='Waktu habis!'))
+    except LineBotApiError:
+        print("Linebotapi ERROR")
+        line_bot_api.push_message(event.source.sender_id, TextSendMessage(text='Waktu habis!'))
+    except BaseError:
+        print("Base ERROR")
+        line_bot_api.push_message(event.source.sender_id, TextSendMessage(text='Waktu habis!'))
+    except:
+        print("Other ERROR")
+        line_bot_api.push_message(event.source.sender_id, TextSendMessage(text='Waktu habis!'))
 
 ## VOICE MESSAGE
 def ooh_wee(event, line_bot_api):
