@@ -136,6 +136,7 @@ def get_name(event, line_bot_api):
         TextSendMessage(text=name)
     )
 
+## VOICE MESSAGE
 def ooh_wee(event, line_bot_api):
     audio_message = AudioSendMessage(
         original_content_url='https://drive.google.com/uc?export=download&id=0B_pg-_BXUdGrR2tPV1N1RlczWXM',
@@ -156,3 +157,12 @@ def wadadaw(event, line_bot_api):
         audio_message
     )
 
+def meeseeks(event, line_bot_api):
+    audio_message = AudioSendMessage(
+        original_content_url='https://drive.google.com/uc?export=download&id=0B_pg-_BXUdGrSjR0ZDhVYmR0Y3c',
+        duration=4000
+    )
+    line_bot_api.reply_message(
+        event.reply_token,
+        audio_message
+    )

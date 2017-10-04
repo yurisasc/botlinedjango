@@ -40,6 +40,8 @@ def handle_text_message(event):
         ooh_wee(event, line_bot_api)
     elif ('wadadaw' in textArray) or ('wadadaaw' in textArray):
         wadadaw(event, line_bot_api)
+    elif '*push*' in textArray:
+        
     ##TODO implement remind_me, data type = dictionary{nama:tanggal}
 
 @csrf_exempt
