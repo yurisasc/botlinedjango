@@ -2,8 +2,6 @@
 ## /new
 from linebot.models import MessageEvent, TextSendMessage, TextMessage
 
-reminder = Reminder()
-
 class Reminder():
 
     def __init__(self):
@@ -82,3 +80,5 @@ class Reminder():
                 event.reply_token,
                 TextSendMessage(text=self.dictio)
             )
+
+reminder = Reminder()
