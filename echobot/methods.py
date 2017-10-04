@@ -207,7 +207,8 @@ def get_tugasInTanggal(event, line_bot_api, tanggal):
     result = "==================\n"
     for tugas in list(dictio.values()):
         if tanggal in list(tugas.keys()):
-            result += list(dictio.keys())[list(dictio.values()).index(tugas)] + " " +tugas.get(tanggal) + "\n"
+            result += (list(dictio.keys())[list(dictio.values()).index(tugas)] + " " +tugas.get(tanggal) + "\n")
+            print("get_tugasInTanggal)
     result += "=================="
     line_bot_api.reply_message(
         event.reply_token,
@@ -218,7 +219,8 @@ def get_tugasInTanggal(event, line_bot_api, tanggal):
 def get_tugasInMatkul(event, line_bot_api, matkul):
     result = "==================\n"
     for tugas in dictio.get(matkul):
-        result += tugas + " " + dictio.get(matkul).get(tugas) + "\n"
+        result += (tugas + " " + dictio.get(matkul).get(tugas) + "\n")
+        print("get_tugasInMatkul")
     result += "=================="
     line_bot_api.reply_message(
         event.reply_token,
@@ -229,7 +231,8 @@ def get_tugasInMatkul(event, line_bot_api, matkul):
 def get_courses(event, line_bot_api):
     result = "==================\n"
     for matkul in dictio:
-            result += matkul + "\n"
+        result += (matkul + "\n")
+        print("get_courses")
     result += "=================="
     line_bot_api.reply_message(
         event.reply_token,
