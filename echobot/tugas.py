@@ -6,7 +6,7 @@ class Reminder():
     def __init__(self):
         self.dictio = {}
 
-    def new_tugas(event, line_bot_api, matkul, tanggal, pesan):
+    def new_tugas(self, event, line_bot_api, matkul, tanggal, pesan):
         if matkul in self.dictio: self.dictio[matkul][pesan] = tanggal
         else: self.dictio[matkul] = {pesan:tanggal}
         line_bot_api.reply_message(
@@ -15,7 +15,7 @@ class Reminder():
         )
 
     ## /task date
-    def get_tugasInTanggal(event, line_bot_api, tanggal):
+    def get_tugasInTanggal(self, event, line_bot_api, tanggal):
         result = "==================\n"
         for tugas in list(self.dictio.values()):
             if tanggal in list(tugas.keys()):
@@ -28,7 +28,7 @@ class Reminder():
         )
 
     ## /task course
-    def get_tugasInMatkul(event, line_bot_api, matkul):
+    def get_tugasInMatkul(self, event, line_bot_api, matkul):
         result = "==================\n"
         for tugas in self.dictio.get(matkul):
             result += (tugas + " " + self.dictio.get(matkul).get(tugas) + "\n")
@@ -40,7 +40,7 @@ class Reminder():
         )
 
     ## /course
-    def get_courses(event, line_bot_api):
+    def get_courses(self, event, line_bot_api):
         result = "==================\n"
         for matkul in self.dictio:
             result += (matkul + "\n")
@@ -52,7 +52,7 @@ class Reminder():
         )
 
     ## /remove
-    def remove_tugas(event, line_bot_api, matkul, pesan):
+    def remove_tugas(self, event, line_bot_api, matkul, pesan):
         if matkul in dictio:
             try:
                 self.dictio[matkul].pop(pesan)
@@ -71,7 +71,7 @@ class Reminder():
                 TextSendMessage(text="Course not found")
             )
 
-    def dictio(event, line_bot_api):
+    def dictio(self, event, line_bot_api):
         print("try printing dictio")
         line_bot_api.reply_message(
                 event.reply_token,
