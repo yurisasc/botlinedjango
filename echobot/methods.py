@@ -208,7 +208,7 @@ def get_tugasInTanggal(event, line_bot_api, tanggal):
     for tugas in list(dictio.values()):
         if tanggal in list(tugas.keys()):
             result += (list(dictio.keys())[list(dictio.values()).index(tugas)] + " " +tugas.get(tanggal) + "\n")
-            print("get_tugasInTanggal)
+            print("get_tugasInTanggal")
     result += "=================="
     line_bot_api.reply_message(
         event.reply_token,
