@@ -147,8 +147,7 @@ def trigger_timer(event, line_bot_api, limit):
         TextSendMessage(text='Started timer for ' + limit + ' seconds.')
     )
     for i in range(int(limit)):
-        time.sleep(1)
-    return True    
+        time.sleep(1)    
 
 ## VOICE MESSAGE
 def ooh_wee(event, line_bot_api):

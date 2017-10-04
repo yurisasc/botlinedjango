@@ -43,9 +43,9 @@ def handle_text_message(event):
     elif '*push*' in textArray:
         meeseeks(event, line_bot_api)
     elif 'trigger_timer' in textArray:
-        if trigger_timer(event, line_bot_api, textArray[1]) == True:
-            print("=========== Timer done! ===========")
-            line_bot_api.push_message(event.source.sender_id, TextSendMessage(text='Waktu habis!'))
+        trigger_timer(event, line_bot_api, textArray[1])
+        print("=========== Timer done! ===========")
+        line_bot_api.push_message(event.source.sender_id, TextSendMessage(text='Waktu habis!'))
     ##TODO implement remind_me, data type = dictionary{nama:tanggal}
 
 @csrf_exempt
