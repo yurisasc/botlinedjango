@@ -258,3 +258,10 @@ def remove_tugas(event, line_bot_api, matkul, pesan):
             event.reply_token,
             TextSendMessage(text="Course not found")
         )
+
+def dictio(event, line_bot_api):
+    print("try printing dictio")
+    line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=dictio)
+        )

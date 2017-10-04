@@ -54,6 +54,8 @@ def handle_text_message(event):
         get_courses(event, line_bot_api)
     elif '/remove' in textArray:
         remove_tugas(event, line_bot_api, textArray[1], textArray[2])
+    elif '/dictio' in textArray:
+        dictio(event, line_bot_api)
     ##TODO implement remind_me, data type = dictionary{nama:tanggal}
 
 @csrf_exempt
