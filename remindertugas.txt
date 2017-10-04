@@ -4,7 +4,8 @@ COMMANDS:
 	- /new MATKUL TANGGAL PESAN		##ADD NEW TANGGAL:PESAN TO THE DICTIONARY, IF NEW MATKUL IS FOUND, THEN CREATE A NEW ELEMENT
 	- /TUGAS MATKUL					##LIST ALL TANGGAL:PESAN FROM THE MATKUL
 	- /TUGAS TANGGAL				##LIST ALL TANGGAL:PESAN BY THE TANGGAL
-	- /COURSES
+	- /COURSE						##LIST ALL COURSES
+	- /remove MATKUL TANGGAL PESAN
 	
 
 METHODS:
@@ -16,18 +17,18 @@ METHODS:
 				if matkul in dictio: dictio[matkul][pesan] = tanggal
 					else: dictio[matkul] = {pesan:tanggal}
 		
-		/list TANGGAL:
+		/TUGAS MATKUL:
 			def get_tugasInTanggal(dictio, tanggal):
 				for tugas in list(dictio.values()):
 					if tanggal in list(tugas.keys()):
 						print(list(dictio.keys())[list(dictio.values()).index(tugas)] + " " +tugas.get(tanggal))
 		
-		/list MATKUL:
+		/TUGAS TANGGAL:
 			def get_tugasInMatkul(dictio, matkul):
 				for tugas in dictio.get(matkul):
 					print(tugas + " " + dictio.get(matkul).get(tugas))
 		
-		/COURSES:
+		/COURSE:
 			def get_courses(dictio):
 				for matkul in dictio:
 					print(matkul)

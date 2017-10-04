@@ -45,13 +45,15 @@ def handle_text_message(event):
     elif 'trigger_timer' in textArray:
         trigger_timer(event, line_bot_api, textArray[1])
     elif '/new' in textArray:
-        new_tugas(event, line_bot_api, textArray[1:])
+        new_tugas(event, line_bot_api, textArray[1], textArray[2], textArray[3])
     elif ('/task' in textArray[0]) and ('date' in textArray[1]):
         get_tugasInTanggal(event, line_bot_api, textArray[2])
     elif ('/task' in textArray[0]) and ('course' in textArray[1]):
         get_tugasInMatkul(event, line_bot_api, textArray[2])
     elif '/course' in textArray:
         get_courses(event, line_bot_api)
+    elif '/remove' in textArray:
+        remove_tugas(event, line_bot_api, textArray[1], textArray[2])
     ##TODO implement remind_me, data type = dictionary{nama:tanggal}
 
 @csrf_exempt

@@ -194,9 +194,13 @@ def meeseeks(event, line_bot_api):
 
 ## TEST TUGAS
 ## /new
-def new_tugas(dictio, matkul, tanggal, pesan):
+def new_tugas(event, line_bot_api, matkul, tanggal, pesan):
     if matkul in dictio: dictio[matkul][pesan] = tanggal
     else: dictio[matkul] = {pesan:tanggal}
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text="Added task " + pesan + " in " + matkul)
+    )
 
 ## /task date
 def get_tugasInTanggal(event, line_bot_api, tanggal):
@@ -231,3 +235,23 @@ def get_courses(event, line_bot_api):
         event.reply_token,
         TextSendMessage(text=result)
     )
+
+## /remove
+def remove_tugas(event, line_bot_api, matkul, pesan):
+    if matkul in dictio:
+        try:
+            dictio[matkul].pop(pesan)
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="Removed task " + pesan + " in " + matkul)
+            )
+        except KeyError:
+            line_bot_api.reply_message(
+                event.reply_token,
+                TextSendMessage(text="No such task in the course")
+            )
+    else:
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text="Course not found")
+        )
