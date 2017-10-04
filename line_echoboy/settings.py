@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-from .tugas import Reminder
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +24,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^vx91(_=o8h$7bxv_e_rzr+$hb8$cb%%r@t1rg3x4g11cgk3)+'
 LINE_CHANNEL_ACCESS_TOKEN = '+jJ/ENhPIjpesQmxX4cBbmfUupbBsMUJQUEZ+Z0dMJTL3bQN9QhCsU6P8b1walTQqtTRGlsRu5Fxmoa8R2K7ROupfupbmtgAdFDYUGiFWK7jNAZc3n9ATwIiMR4Hka4xCdNe2WvtG24adYaWdAmqXgdB04t89/1O/w1cDnyilFU='
 LINE_CHANNEL_SECRET = 'af074844f5a2079e591ff64d80221f01'
-reminder = Reminder()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True

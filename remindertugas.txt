@@ -2,33 +2,43 @@ DATA STRUCTURE: {MATKUL1:{TANGGAL:PESAN, TANGGAL:PESAN, TANGGAL:PESAN}, MATKUL2:
 
 COMMANDS:
 	- /new MATKUL TANGGAL PESAN		##ADD NEW TANGGAL:PESAN TO THE DICTIONARY, IF NEW MATKUL IS FOUND, THEN CREATE A NEW ELEMENT
-	- /TUGAS MATKUL					##LIST ALL TANGGAL:PESAN FROM THE MATKUL
-	- /TUGAS TANGGAL				##LIST ALL TANGGAL:PESAN BY THE TANGGAL
-	- /COURSE						##LIST ALL COURSES
-	- /remove MATKUL TANGGAL PESAN
+	- /task course					##LIST ALL TANGGAL:PESAN FROM THE MATKUL
+	- /task date					##LIST ALL TANGGAL:PESAN BY THE TANGGAL
+	- /course						##LIST ALL COURSES
+	- /remove MATKUL TANGGAL PESAN	##REMOVE CERTAIN TASK BASED ON THE INPUT
 	
 
 METHODS:
 		dictio = {'PPW':{'20/02/2017':'LAB1','21/02/2017':'LAB2'}, 'SDA':{'21/02/2017':'TP1'}}
-		tanggal = '21/02/2017'
 		
 		/new MATKUL TANGGAL PESAN
 			def new_tugas(dictio, matkul, tanggal, pesan):
 				if matkul in dictio: dictio[matkul][pesan] = tanggal
 					else: dictio[matkul] = {pesan:tanggal}
 		
-		/TUGAS MATKUL:
+		/task date:
 			def get_tugasInTanggal(dictio, tanggal):
 				for tugas in list(dictio.values()):
 					if tanggal in list(tugas.keys()):
 						print(list(dictio.keys())[list(dictio.values()).index(tugas)] + " " +tugas.get(tanggal))
 		
-		/TUGAS TANGGAL:
+		/task course:
 			def get_tugasInMatkul(dictio, matkul):
 				for tugas in dictio.get(matkul):
 					print(tugas + " " + dictio.get(matkul).get(tugas))
 		
-		/COURSE:
+		/course:
 			def get_courses(dictio):
 				for matkul in dictio:
 					print(matkul)
+		
+		/remove
+			def remove_tugas(event, line_bot_api, matkul, pesan):
+				if matkul in dictio:
+					try:
+						self.dictio[matkul].pop(pesan)
+						print("Removed task " + pesan + " in " + matkul)
+					except KeyError:
+						print("No such task in the course")
+				else:
+					print("Course not found")

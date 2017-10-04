@@ -77,3 +77,5 @@ class Reminder():
                 event.reply_token,
                 TextSendMessage(text=self.dictio)
             )
+
+reminder = Reminder()
