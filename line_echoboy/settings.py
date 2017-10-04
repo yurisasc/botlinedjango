@@ -22,8 +22,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 
 SECRET_KEY = '^vx91(_=o8h$7bxv_e_rzr+$hb8$cb%%r@t1rg3x4g11cgk3)+'
-LINE_CHANNEL_ACCESS_TOKEN = 'eLYtQ9TeGPaHYiKOooP5Spuh8S0CBF5sM6KBbhpkGoZugBkBA9pbFLn+KgFeukTi531rM6JRoS0HQTB+hHLqdfsYEw9pMZrGz5WF5ILotRA2hWG9sJy1HdIR7CG0INx5kcpOUg1Y7YSca6y0XqmXLgdB04t89/1O/w1cDnyilFU='
-LINE_CHANNEL_SECRET = 'cf068e645fee26a1b18af10136809c7d'
+LINE_CHANNEL_ACCESS_TOKEN = '+jJ/ENhPIjpesQmxX4cBbmfUupbBsMUJQUEZ+Z0dMJTL3bQN9QhCsU6P8b1walTQqtTRGlsRu5Fxmoa8R2K7ROupfupbmtgAdFDYUGiFWK7jNAZc3n9ATwIiMR4Hka4xCdNe2WvtG24adYaWdAmqXgdB04t89/1O/w1cDnyilFU='
+LINE_CHANNEL_SECRET = 'af074844f5a2079e591ff64d80221f01'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
