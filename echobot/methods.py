@@ -127,6 +127,7 @@ def get_name(event, line_bot_api):
         userId = event.source.sender_id
         profile = line_bot_api.get_profile(userId)
         name = profile.display_name
+        print("user_id = "+userId+", name = "+name)
     elif(isinstance(event.source, SourceGroup)):
         groupId = event.source.group_id
         userId = event.source.user_id
