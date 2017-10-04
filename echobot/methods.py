@@ -193,41 +193,41 @@ def meeseeks(event, line_bot_api):
     )
 
 ## TEST TUGAS
-    ## /new
-    def new_tugas(dictio, matkul, tanggal, pesan):
-        if matkul in dictio: dictio[matkul][pesan] = tanggal
-            else: dictio[matkul] = {pesan:tanggal}
+## /new
+def new_tugas(dictio, matkul, tanggal, pesan):
+    if matkul in dictio: dictio[matkul][pesan] = tanggal
+    else: dictio[matkul] = {pesan:tanggal}
 
-    ## /task date
-    def get_tugasInTanggal(event, line_bot_api, tanggal):
-        result = "==================\n"
-        for tugas in list(dictio.values()):
-            if tanggal in list(tugas.keys()):
-                result += list(dictio.keys())[list(dictio.values()).index(tugas)] + " " +tugas.get(tanggal) + "\n"
-        result += "=================="
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=result)
-        )
+## /task date
+def get_tugasInTanggal(event, line_bot_api, tanggal):
+    result = "==================\n"
+    for tugas in list(dictio.values()):
+        if tanggal in list(tugas.keys()):
+            result += list(dictio.keys())[list(dictio.values()).index(tugas)] + " " +tugas.get(tanggal) + "\n"
+    result += "=================="
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=result)
+    )
 
-    ## /task course
-    def get_tugasInMatkul(event, line_bot_api, matkul):
-        result = "==================\n"
-        for tugas in dictio.get(matkul):
-            result += tugas + " " + dictio.get(matkul).get(tugas) + "\n"
-        result += "=================="
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=)
-        )
+## /task course
+def get_tugasInMatkul(event, line_bot_api, matkul):
+    result = "==================\n"
+    for tugas in dictio.get(matkul):
+        result += tugas + " " + dictio.get(matkul).get(tugas) + "\n"
+    result += "=================="
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=)
+    )
 
-    ## /course
-    def get_courses(event, line_bot_api):
-        result = "==================\n"
-        for matkul in dictio:
-                result += matkul + "\n"
-        result += "=================="
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=result)
-        )
+## /course
+def get_courses(event, line_bot_api):
+    result = "==================\n"
+    for matkul in dictio:
+            result += matkul + "\n"
+    result += "=================="
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=result)
+    )
