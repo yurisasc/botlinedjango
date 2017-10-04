@@ -1,0 +1,33 @@
+DATA STRUCTURE: {MATKUL1:{TANGGAL:PESAN, TANGGAL:PESAN, TANGGAL:PESAN}, MATKUL2:{TANGGAL:PESAN, TANGGAL:PESAN}}
+
+COMMANDS:
+	- /new MATKUL TANGGAL PESAN		##ADD NEW TANGGAL:PESAN TO THE DICTIONARY, IF NEW MATKUL IS FOUND, THEN CREATE A NEW ELEMENT
+	- /TUGAS MATKUL					##LIST ALL TANGGAL:PESAN FROM THE MATKUL
+	- /TUGAS TANGGAL				##LIST ALL TANGGAL:PESAN BY THE TANGGAL
+	- /COURSES
+	
+
+METHODS:
+		dictio = {'PPW':{'20/02/2017':'LAB1','21/02/2017':'LAB2'}, 'SDA':{'21/02/2017':'TP1'}}
+		tanggal = '21/02/2017'
+		
+		/new MATKUL TANGGAL PESAN
+			def new_tugas(dictio, matkul, tanggal, pesan):
+				if matkul in dictio: dictio[matkul][pesan] = tanggal
+					else: dictio[matkul] = {pesan:tanggal}
+		
+		/list TANGGAL:
+			def get_tugasInTanggal(dictio, tanggal):
+				for tugas in list(dictio.values()):
+					if tanggal in list(tugas.keys()):
+						print(list(dictio.keys())[list(dictio.values()).index(tugas)] + " " +tugas.get(tanggal))
+		
+		/list MATKUL:
+			def get_tugasInMatkul(dictio, matkul):
+				for tugas in dictio.get(matkul):
+					print(tugas + " " + dictio.get(matkul).get(tugas))
+		
+		/COURSES:
+			def get_courses(dictio):
+				for matkul in dictio:
+					print(matkul)
