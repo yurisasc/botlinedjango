@@ -142,6 +142,10 @@ def trigger_timer(event, line_bot_api, limit):
     userId = event.source.sender_id
     print(userId)
     print(int(limit))
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text='Started timer for ' + limit + ' seconds.')
+    )
     for i in range(int(limit)):
         time.sleep(1)
     print("=========== Timer done! ===========")
