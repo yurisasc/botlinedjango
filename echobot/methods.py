@@ -138,6 +138,15 @@ def get_name(event, line_bot_api):
         TextSendMessage(text=name)
     )
 
+def trigger_timer(event, line_bot_api, limit):
+    userId = event.source.sender_id
+    print(userId)
+    print(int(limit))
+    for i in range(int(limit)):
+        time.sleep(1)
+    print("=========== Timer done! ===========")
+    line_bot_api.push_message(userId, TextSendMessage(text='Waktu habis!'))
+
 ## VOICE MESSAGE
 def ooh_wee(event, line_bot_api):
     audio_message = AudioSendMessage(
